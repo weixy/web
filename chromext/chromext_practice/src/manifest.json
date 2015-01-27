@@ -4,6 +4,10 @@
   "version": "1.0",
   "minimum_chrome_version": "30.0",
   "devtools_page": "devtools.html",
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png"
+  },
   "browser_action": {
     "default_icon": "icons/icon.png",
     "default_popup": "popup.html"
