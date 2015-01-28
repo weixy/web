@@ -2,9 +2,55 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Image Search</title>
+    <style>
+        .section {
+            display: block;
+        }
+        #history-section {
+            width: 40%;
+        }
+        #result-section
+        #xpath-exp {
+            width: 70%
+        }
+        li {
+            list-style: none;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            margin: 6px 2px 6px 2px;
+        }
+        .tag {
+            color: white;
+            font-weight: bold;
+            padding: 1px 4px 1px 4px;
+        }
+        .hit {
+            background: green;
+        }
+        .miss {
+            background: coral;
+        }
+        .syntax {
+            background: red;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="contents">
+        <div id="expression-section" class="section">
+            <label class="field-text">XPath:&nbsp;</label>
+            <input type="text" id="xpath-exp"/>
+            <button id="query-button">Search</button>
+        </div>
+        <div id="history-section" class="section">
+            <ul id="history-list">
+                <li class="xpath-item"><label class="xpath-item-tag tag hit">4</label>.//div[contains(@class, 'test']</li>
+                <li class="xpath-item"><label class="xpath-item-tag tag miss">0</label>.//div/div/table[equals(@id, 'id')]</li>
+                <li class="xpath-item"><label class="xpath-item-tag tag syntax">0</label>./div/div/table[@id, 'id']</li>
+            </ul>
+        </div>
+        <div id="result-section" class="section"></div>
+    </div>
 </body>
 </html>
