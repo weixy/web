@@ -10,7 +10,9 @@
         #history-section {
             width: 40%;
         }
-        #result-section
+        #result-section {
+            width: 60%;
+        }
         #xpath-exp {
             width: 70%
         }
@@ -46,7 +48,7 @@
         <div id="history-section" class="section">
             <ul id="history-list">
                 <li class="xpath-item"><label class="xpath-item-tag tag hit">4</label>.//div[contains(@class, 'test']</li>
-                <li class="xpath-item"><label class="xpath-item-tag tag miss">0</label>.//div/div/table[equals(@id, 'id')]</li>
+                <li class="xpath-item"><label class="xpath-item-tag tag miss">0</label>//label[normalize-space(descendant-or-self::text())='Content Fields']/following-sibling::div/ul</li>
                 <li class="xpath-item"><label class="xpath-item-tag tag syntax">0</label>./div/div/table[@id, 'id']</li>
             </ul>
         </div>
