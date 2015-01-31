@@ -1,22 +1,26 @@
 /**
- * Created by y981821 on 27/01/15.
+ * Created by j1mw3i on 27/01/15.
  */
 
-chrome.devtools.panels.create("Image Search",
-    "ImageSearchIcon.png",
-    "panel.html",
-    function(panel) {
-        var port = chrome.runtime.connect({name: "imageSearch"});
+chrome.devtools.panels.create("XPath Helper", "icons/icon.png", "panel.html", function(panel) {
+        var _window;
+        var data = [];
+
+        var port = chrome.runtime.connect({name: "xpathHelper"});
         port.onMessage.addListener(function(msg) {
-            var bkg = chrome.extension.getBackgroundPage();
-            bkg.console.log(msg);
-            console.log(msg);
+            if (_window) {
+                _window.render(msg);
+            } else {
+                data.push(msg);
+            }
         });
 
-        //panel.onShown.addListener(function lstn(win) {
-        //    panel.onShown.removeListener(lstn);
-        //    _window = win;
-        //    _window.port = port;
-        //});
+        panel.onShown.addListener(function tmp(win) {
+            panel.onShown.removeListener(tmp);
+            _window = win;
+            _window.port = port;
+
+
+        });
     }
 );
