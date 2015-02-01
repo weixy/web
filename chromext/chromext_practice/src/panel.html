@@ -8,13 +8,14 @@
             display: block;
         }
         #history-section {
-            width: 40%;
+            width: 45%;
+            float: right;
         }
         #result-section {
-            width: 60%;
+            width: 55%;
         }
         #xpath-exp {
-            width: 70%
+            width: 60%
         }
         li {
             list-style: none;
@@ -41,13 +42,14 @@
     <script src="panel.js"></script>
 </head>
 <body>
-    <div id="message">none</div>
+    <div id="message">Please input xpath expression:</div>
     <div id="contents">
         <div id="expression-section" class="section">
             <label class="field-text" for="xpath-exp">XPath:&nbsp;</label>
             <input type="text" id="xpath-exp"/>
             <button id="query-button">Search</button>
         </div>
+        <div id="result-section" class="section"></div>
         <div id="history-section" class="section">
             <ul id="history-list">
                 <li class="xpath-item"><label class="xpath-item-tag tag hit">4</label>.//div[contains(@class, 'test']</li>
@@ -55,7 +57,6 @@
                 <li class="xpath-item"><label class="xpath-item-tag tag syntax">0</label>./div/div/table[@id, 'id']</li>
             </ul>
         </div>
-        <div id="result-section" class="section"></div>
     </div>
 </body>
 </html>

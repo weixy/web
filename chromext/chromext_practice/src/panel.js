@@ -11,18 +11,25 @@ function init() {
 function updateHistory(history) {
     var historyUl = document.querySelector('#history-list');
     var html = '<li class="xpath-item"><label class="xpath-item-tag tag hit">4</label>' + history +'</li>';
-    historyUl.innerHTML.appendChild(document.createElement(html));
+    var exist_history = historyUl.innerHTML;
+    historyUl.innerHTML = html + exist_history;
 }
 
-function render(message) {
-    console.log(message);
+function render(resp) {
+    //console.log(resp);
     var msgDiv = document.querySelector("#message");
-    msgDiv.innerHTML = "received message from background.";
+    if (resp.correct) {
+        msgDiv.innerHTML = "Please input xpath expression:";
+        updateHistory(resp.xpath);
+    } else {
+        msgDiv.innerHTML = resp.message;
+    }
 }
 
 function onQueryBtnClick() {
     console.log("Search button clicked ...");
-    port.postMessage({xpath: "//div"});
+    var input = document.querySelector("#xpath-exp");
+    port.postMessage({xpath: input.value});
 }
 
 onload = function() {

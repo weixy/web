@@ -7,11 +7,11 @@ chrome.devtools.panels.create("XPath Helper", "icons/icon.png", "panel.html", fu
         var data = [];
 
         var port = chrome.runtime.connect({name: "xpathHelper"});
-        port.onMessage.addListener(function(msg) {
+        port.onMessage.addListener(function(resp) {
             if (_window) {
-                _window.render(msg);
+                _window.render(resp);
             } else {
-                data.push(msg);
+                data.push(resp);
             }
         });
 
@@ -19,8 +19,6 @@ chrome.devtools.panels.create("XPath Helper", "icons/icon.png", "panel.html", fu
             panel.onShown.removeListener(tmp);
             _window = win;
             _window.port = port;
-
-
         });
     }
 );
